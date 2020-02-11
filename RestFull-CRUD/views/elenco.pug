@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    .container-unita
+        each personaggio in unita
+            a(href=`search/${personaggio.Unit}`)
+                div(class=`${personaggio.Rarity}`)
+                    img(src=`/images/${personaggio.Unit}.png`)
+                h1(class=`${personaggio.Rarity}`) #{personaggio.Unit}   
+            

@@ -1,0 +1,106 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
+}
+.container-unita {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 50px;
+    padding: 100px;
+    
+}
+div.carta{
+    padding-left:750px;
+    
+}
+h2{
+    color: rgb(0, 0, 0);
+    text-align:center;
+    
+   
+    
+}
+h1.Epic {
+  color: rgb(211, 10, 238);
+  
+  
+}
+h1.Common {
+  color: rgb(6, 95, 211);
+  
+  
+}
+h1.Rare {
+  
+  color: rgb(196, 64, 4);
+  
+  
+}
+
+h1.Legendary {
+  
+  color: rgb(255, 138, 5);
+}
+
+h1.null {
+  
+  color: rgb(0, 0, 0);
+  
+  
+
+}
+
+img{
+    text-align:center;
+    height: 200px;
+    
+}
+a{
+    width:200px;
+    height:200px;
+    padding:35px;
+    
+}
+div{
+    width:165px;
+    height:200px;
+    border-radius: 35px;
+}
+div.Epic {
+  
+  border: 15px solid rgb(211, 10, 238);
+  
+  
+}
+
+div.Common {
+  
+  border: 15px solid rgb(6, 95, 211);
+  
+  
+}
+
+div.Rare {
+  
+  border: 15px solid rgb(196, 64, 4);
+  
+  
+}
+
+div.Legendary {
+  
+  border: 15px solid rgb(255, 138, 5);
+  
+  
+  background-image: url('../images/video.gif')
+}
+
+div.null {
+  
+  border: 15px solid rgb(0, 0, 0);
+  
+  
+
+}
+
