@@ -1,3 +1,5 @@
+
+
 var express = require('express');
 var router = express.Router();
 var cors = require('cors')
@@ -34,11 +36,6 @@ let executeQuery = function (res, query, next) {
   });
 }
 
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-  let sqlQuery = "select * from dbo.[cr-unit-attributes]";
-  executeQuery(res, sqlQuery, next);
-});
 
 router.get('/search/:name', function (req, res, next) {
     sql.connect(config, err => {
@@ -63,7 +60,10 @@ router.get('/elenco', function (req, res, next) {
   });
 });
 router.get('/inserisci', function (req, res, next) {
-    res.render('index');
+    res.render('inserisci');
+})
+router.get('/elimina', function (req, res, next) {
+    res.render('elimina');
 })
 router.get('/inserito', function (req, res, next) {
     let sqlQuery = `select * from dbo.[cr-unit-attributes] where Unit ='${req.params.name}'`;
@@ -71,16 +71,40 @@ router.get('/inserito', function (req, res, next) {
 })
 
 router.post('/', function (req, res, next) {
-  // Add a new Unit  
+  console.log(req.body);
   let unit = req.body;
-  if (!unit) {  //Qui dovremmo testare tutti i campi della richiesta
-    res.status(500).json({success: false, message:'Error while connecting database', error:err});
-    return;
+  if (!unit) {
+    next(createError(400 , "Please provide a correct unit"));
   }
-  let sqlInsert = `INSERT INTO dbo.[cr-unit-attributes] (Unit,Cost,Hit_Speed) 
-                     VALUES ('${unit.Unit}','${unit.Cost}','${unit.Hit_Speed}')`;
-  executeQuery(res, sqlInsert, next);
-  res.send({success:true, message: "unità inserita con successo", unit: unit})
+  sql.connect(config, err => {
+    let sqlRequest = new sql.Request();
+    let sqlInsert = `INSERT INTO dbo.[cr-unit-attributes] (Unit, Cost, Hit_Speed, Count,imageUrl) VALUES ('${unit.Unit}','${unit.Cost}','${unit.Hit_Speed}','${unit.Count}','${unit.imageUrl}')`;
+    sqlRequest.query(sqlInsert, (error, results) => {
+        if (error) throw error;
+        sqlRequest.query(`SELECT * FROM [cr-unit-attributes] WHERE Unit = '${unit.Unit}'`, (err, result) => {
+            if (err) console.log(err);
+            res.render('dettagli', { unita: result.recordsets[0][0] });
+        });
+    });
+  })
 });
 
+router.post('/eliminato', function (req, res, next) {
+  console.log(req.body);
+  let unita = req.body;
+  if (!unita) {
+    next(createError(400 , "Please provide a correct unit"));
+  }
+  sql.connect(config, err => {
+    let sqlRequest = new sql.Request();
+    let sqlDelete = `DELETE FROM dbo.[cr-unit-attributes] WHERE Unit = '${unita.Unit}'`;
+    sqlRequest.query(sqlDelete, (error, results) => {
+        if (error) throw error;
+        sqlRequest.query(`DELETE FROM dbo.[cr-unit-attributes] WHERE Unit = '${unita.Unit}'`, (err, result) => {
+            if (err) console.log(err);
+            res.render('eliminato');
+        });
+    });
+  })
+});
 module.exports = router;

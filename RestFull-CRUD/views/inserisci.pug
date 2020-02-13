@@ -1,0 +1,32 @@
+extends layout
+block content
+ 
+  div.form
+    form(method='POST' action='/users')
+        div
+        label(for='Unit') Unit:
+        input(type='text', placeholder='Unit name' name='Unit')
+        br
+        br
+        div  
+        label(for='Cost') Cost:
+        input(type='text', placeholder='xy' name='Cost')
+        br
+        br
+        div  
+        label(for='Hit_Speed') Hit speed:
+        input(type='text', placeholder='xy sec' name='Hit_Speed')
+        br
+        br
+        div  
+        label(for='Count') Count:
+        input(type='text', placeholder='xy' name='Count')
+        br
+        br
+        div  
+        label(for='imageUrl') image Url:
+        input(type='text', placeholder='URL' name='imageUrl')
+        br
+        br
+        br
+        button(type='submit') Invia

@@ -3,14 +3,22 @@ extends layout
 block content
 
     div.carta
-        img(src=`/images/${unita.Unit}.png`)
-        h2 Nome: #{unita.Unit}
-        h2 Cost: #{unita.Cost}
-        h2 Speed: #{unita.Speed}
-        h2 Hit Speed: #{unita.Hit_Speed}
-        h2 Count: #{unita.Count}
-        h2 Range: #{unita.Range}
-        h2 Transport: #{unita.Transport}
-        h2 Type: #{unita.Type}
-        h2 Rarity: #{unita.Rarity}
-    
+        
+        img.dettaglio(src=`/images/${unita.Unit}.png` onerror="this.style.display='none'")
+        img.dettaglio(src=`${unita.imageUrl}` onerror="this.style.display='none'")
+        h2.dettagli Nome: #{unita.Unit}
+        h2.dettagli Cost: #{unita.Cost}
+        h2.dettagli Speed: #{unita.Speed}
+        h2.dettagli Hit Speed: #{unita.Hit_Speed}
+        h2.dettagli Count: #{unita.Count}
+        h2.dettagli Range: #{unita.Range}
+        h2.dettagli Transport: #{unita.Transport}
+        h2.dettagli Type: #{unita.Type}
+        h2.dettagli Rarity: #{unita.Rarity}
+        div.form
+        form(method='POST' action='/users/eliminato')
+            div
+            
+            
+            button.elimina(type='submit' value=`${unita.Unit}` name='Unit') ELIMINA
+        

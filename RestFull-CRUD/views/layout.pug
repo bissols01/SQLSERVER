@@ -4,4 +4,17 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    .navbar
+
+        ul
+            li
+                a.active(href='/') HOME
+            li
+                a(href='/users/elenco') ELENCO
+            li
+                a(href='/users/inserisci') INSERISCI
+            li
+                a(href='/users/elimina') ELIMINA
+
+        
+block content
