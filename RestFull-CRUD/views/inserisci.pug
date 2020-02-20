@@ -4,29 +4,56 @@ block content
   div.form
     form(method='POST' action='/users')
         div
-        label(for='Unit') Unit:
-        input(type='text', placeholder='Unit name' name='Unit')
+        label(for='Unit') Unit:                
+        input(type='text', placeholder='Unit name' name='Unit' required)
         br
         br
         div  
-        label(for='Cost') Cost:
-        input(type='text', placeholder='xy' name='Cost')
+        label(for='Cost') Cost:                
+        input(type='number', placeholder='xy' name='Cost' required)
         br
         br
         div  
-        label(for='Hit_Speed') Hit speed:
-        input(type='text', placeholder='xy sec' name='Hit_Speed')
+        label(for='Hit_Speed') Hit speed:                
+        input(type='number', placeholder='xy sec' name='Hit_Speed' required)
         br
         br
         div  
-        label(for='Count') Count:
-        input(type='text', placeholder='xy' name='Count')
+        label(for='Count') Count:                
+        input(type='number', placeholder='xy' name='Count' required)
         br
         br
         div  
-        label(for='imageUrl') image Url:
-        input(type='text', placeholder='URL' name='imageUrl')
+        label(for='imageUrl') image Url:                
+        input(type='link', placeholder='URL' name='imageUrl' required)
+        br
+        br
+        div  
+        label(for='Range') Range:                
+        input(type='number', placeholder='1, 2, 3...' name='Range' required)
+        br
+        br
+        div  
+        label(for='Transport') Transport:                
+        input(type='text', placeholder='Air, Ground ...' name='Transport' required)
+        br
+        br
+        div  
+        label(for='Type') Type:                
+        input(type='text', placeholder='Troop, Spell ...' name='Type' required)
+        br
+        br
+        div  
+        label(for='Rarity') Rarity:                
+        <input type="radio" id="Common" name="Rarity" value="Common" required>
+        <label for="Common" class="Common">Common</label><br>
+        <input type="radio" id="Rare" name="Rarity" value="Rare">
+        <label for="Rare" class="Rare">Rare</label><br>
+        <input type="radio" id="Epic" name="Rarity" value="Epic">
+        <label for="Epic" class="Epic">Epic</label>
+        <input type="radio" id="Legendary" name="Rarity" value="Legendary">
+        <label for="Legendary" class="Legendary">Legendary</label>
         br
         br
         br
-        button(type='submit') Invia
+        button(type='submit') Invia                

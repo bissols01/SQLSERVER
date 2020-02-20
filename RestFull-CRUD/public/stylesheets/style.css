@@ -14,6 +14,10 @@ h2.eliminato{
     padding: 100px;
     text-align:center;
     
+    
+}
+a.carta:hover{
+    
 }
 button.elimina{
   background-color: rgb(255, 167, 4); /* Green */
@@ -49,9 +53,13 @@ img.elenco{
     max-width:165px;
     border-radius: 18px;
 }
-h2.dettagli{
-    
+img.elenco:hover{
+    box-shadow: 0 0 100px white;
 }
+h1.elenco:hover{
+    text-shadow: 1px 1px 30px white;
+}
+
 div.carta{
     
     margin:50px auto;
@@ -65,6 +73,9 @@ h2{
     
    
     
+}
+h2.titolo{
+    padding-top:100px;
 }
 h1.Epic {
   color: rgb(211, 10, 238);
@@ -97,7 +108,7 @@ h1.null {
 }
 label{
     color:white;
-    padding:20px;
+    text-align:center;
     
 }
 div.form{
@@ -140,7 +151,18 @@ li a {
   text-decoration: none;
 }
 
-
+label.Common{
+    color:rgb(6, 95, 211);
+}
+label.Rare{
+    color:rgb(196, 64, 4);
+}
+label.Epic{
+    color:rgb(211, 10, 238);
+}
+label.Legendary{
+    color:rgb(255, 138, 5);
+}
 /* Change the link color to #111 (black) on hover */
 li a:hover {
   background-color: rgb(212, 88, 6);
@@ -193,5 +215,16 @@ div.null {
   
   
 
+}
+.navbar{
+    position:fixed;
+    width:100%;
+    top:0;
+    right:1px;
+    padding:0px;
+    margin:0px;
+    border:0px;
+    height:100px;
+    
 }
 

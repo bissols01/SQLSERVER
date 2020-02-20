@@ -4,21 +4,21 @@ block content
 
     div.carta
         
-        img.dettaglio(src=`/images/${unita.Unit}.png` onerror="this.style.display='none'")
-        img.dettaglio(src=`${unita.imageUrl}` onerror="this.style.display='none'")
-        h2.dettagli Nome: #{unita.Unit}
-        h2.dettagli Cost: #{unita.Cost}
-        h2.dettagli Speed: #{unita.Speed}
-        h2.dettagli Hit Speed: #{unita.Hit_Speed}
-        h2.dettagli Count: #{unita.Count}
-        h2.dettagli Range: #{unita.Range}
-        h2.dettagli Transport: #{unita.Transport}
-        h2.dettagli Type: #{unita.Type}
-        h2.dettagli Rarity: #{unita.Rarity}
+        img.dettaglio(src=`/images/${unita[0].Unit}.png` onerror="this.style.display='none'")
+        img.dettaglio(src=`${unita[0].imageUrl}` onerror="this.style.display='none'")
+        h2.dettagli Nome: #{unita[0].Unit}
+        h2.dettagli Cost: #{unita[0].Cost}
+        h2.dettagli Speed: #{unita[0].Speed}
+        h2.dettagli Hit Speed: #{unita[0].Hit_Speed}
+        h2.dettagli Count: #{unita[0].Count}
+        h2.dettagli Range: #{unita[0].Range}
+        h2.dettagli Transport: #{unita[0].Transport}
+        h2.dettagli Type: #{unita[0].Type}
+        h2.dettagli Rarity: #{unita[0].Rarity}
         div.form
         form(method='POST' action='/users/eliminato')
             div
             
             
-            button.elimina(type='submit' value=`${unita.Unit}` name='Unit') ELIMINA
+            button.elimina(type='submit' value=`${unita[0].Unit}` name='Unit') ELIMINA
         

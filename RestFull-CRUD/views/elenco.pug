@@ -3,9 +3,9 @@ extends layout
 block content
     .container-unita
         each personaggio in unita
-            a(href=`search/${personaggio.Unit}`)
+            a.carta(href=`search/${personaggio.Unit}` style="text-decoration:none")
                 div.pallone(class=`${personaggio.Rarity}`)
                     img.elenco(src=`/images/${personaggio.Unit}.png` onerror="this.style.display='none'")
                     img.elenco(src=`${personaggio.imageUrl}` onerror="this.style.display='none'")
-                h1(class=`${personaggio.Rarity}`) #{personaggio.Unit}   
+                h1.elenco(class=`${personaggio.Rarity}`) #{personaggio.Unit}   
             

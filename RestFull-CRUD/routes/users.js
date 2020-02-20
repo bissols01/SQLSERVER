@@ -44,7 +44,7 @@ router.get('/search/:name', function (req, res, next) {
     sqlRequest.query(`SELECT * FROM [cr-unit-attributes] WHERE Unit = '${req.params.name}'`, (err, result) => {
         if (err) console.log(err);
         console.log(result);
-        res.render('dettagli', { unita: result.recordsets[0][0] });
+        res.render('dettagli', { unita: result.recordset});
     });
   });
 });
@@ -55,7 +55,7 @@ router.get('/elenco', function (req, res, next) {
     sqlRequest.query(`SELECT * FROM [cr-unit-attributes]`, (err, result) => {
         if (err) console.log(err);
         console.log(result);
-        res.render('elenco', { unita: result.recordsets[0] });
+        res.render('elenco', { unita: result.recordset});
     });
   });
 });
@@ -78,12 +78,12 @@ router.post('/', function (req, res, next) {
   }
   sql.connect(config, err => {
     let sqlRequest = new sql.Request();
-    let sqlInsert = `INSERT INTO dbo.[cr-unit-attributes] (Unit, Cost, Hit_Speed, Count,imageUrl) VALUES ('${unit.Unit}','${unit.Cost}','${unit.Hit_Speed}','${unit.Count}','${unit.imageUrl}')`;
+    let sqlInsert = `INSERT INTO dbo.[cr-unit-attributes] (Unit, Cost, Hit_Speed, Count,imageUrl, Range, Transport, Type, Rarity) VALUES ('${unit.Unit}','${unit.Cost}','${unit.Hit_Speed}','${unit.Count}','${unit.imageUrl}','${unit.Range}','${unit.Transport}','${unit.Type}','${unit.Rarity}')`;
     sqlRequest.query(sqlInsert, (error, results) => {
         if (error) throw error;
         sqlRequest.query(`SELECT * FROM [cr-unit-attributes] WHERE Unit = '${unit.Unit}'`, (err, result) => {
             if (err) console.log(err);
-            res.render('dettagli', { unita: result.recordsets[0][0] });
+            res.render('dettagli', { unita: result.recordset});
         });
     });
   })
